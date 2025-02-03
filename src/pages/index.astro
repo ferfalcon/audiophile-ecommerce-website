@@ -1,5 +1,7 @@
 ---
 import Analytics from '@vercel/analytics/astro';
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
 ---
 
 <html lang="en">
@@ -8,22 +10,12 @@ import Analytics from '@vercel/analytics/astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-        <Analytics />
+			<Analytics />
 		<title>Astro</title>
 	</head>
 	<body>
 		<style>:root { color-scheme: light dark }</style>
-		<header>
-			<img src="/public/logo.svg" alt="">
-			<nav>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/headphones">Headphones</a></li>
-					<li><a href="/speakers">Speakers</a></li>
-					<li><a href="/earphones">Earphones</a></li>
-				</ul>
-			</nav>
-		</header>
+		<Header />
 		<main>
 			<article>
 				<h1>XX99 Mark II Headphones</h1>
@@ -62,18 +54,6 @@ import Analytics from '@vercel/analytics/astro';
 				<p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
 			</section>
 		</main>
-		<footer>
-			<img src="/public/logo.svg" alt="">
-			<nav>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/headphones">Headphones</a></li>
-					<li><a href="/speakers">Speakers</a></li>
-					<li><a href="/earphones">Earphones</a></li>
-				</ul>
-			</nav>
-			<p>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
-			<p>Copyright 2021. All Rights Reserved</p>
-		</footer>
+		<Footer />
 	</body>
 </html>
