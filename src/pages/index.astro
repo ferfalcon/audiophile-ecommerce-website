@@ -1,59 +1,31 @@
 ---
-import Analytics from '@vercel/analytics/astro';
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import MainLayout from '../layouts/MainLayout.astro'
+import CategoryNavigation from '../components/CategoryNavigation.astro'
+import CatalogBottomBanner from '../components/CatalogBottomBanner.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-			<Analytics />
-		<title>Astro</title>
-	</head>
-	<body>
-		<style>:root { color-scheme: light dark }</style>
-		<Header />
-		<main>
-			<article>
-				<h1>XX99 Mark II Headphones</h1>
-				<b>New product</b>
-				<p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-				<a href="">See product</a>
-			</article>
-			<nav>
-				<ul>
-					<li>
-						<a href="/headphones">Headphones <span>Shop</span></a>
-					</li>
-					<li>
-						<a href="/speakers">Speakers <span>Shop</span></a>
-					</li>
-					<li>
-						<a href="/earphones">Earphones <span>Shop</span></a>
-					</li>
-				</ul>
-			</nav>
-			<article>
-				<h1>ZX9 speaker</h1>
-				<p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-				<a href="">See product</a>
-			</article>
-			<article>
-				<h1>ZX7 speaker</h1>
-				<a href="">See product</a>
-			</article>
-			<article>
-				<h1>YX1 earphones</h1>
-				<a href="">See product</a>
-			</article>
-			<section>
-				<h2>Bringing you the best audio gear</h2>
-				<p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<MainLayout>
+	<main>
+		<article>
+			<h1>XX99 Mark II Headphones</h1>
+			<b>New product</b>
+			<p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
+			<a href="">See product</a>
+		</article>
+		<CategoryNavigation />
+		<article>
+			<h1>ZX9 speaker</h1>
+			<p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+			<a href="">See product</a>
+		</article>
+		<article>
+			<h1>ZX7 speaker</h1>
+			<a href="">See product</a>
+		</article>
+		<article>
+			<h1>YX1 earphones</h1>
+			<a href="">See product</a>
+		</article>
+		<CatalogBottomBanner />
+	</main>
+</MainLayout>
