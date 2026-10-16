@@ -8,13 +8,14 @@
 
 		<!-- wp:navigation {"overlayMenu":"mobile","icon":"menu","hasIcon":true,"ariaLabel":"Primary navigation","className":"audiophile-header__navigation","textColor":"white","overlayBackgroundColor":"white","overlayTextColor":"black","style":{"typography":{"fontSize":"0.8125rem","fontWeight":"700","letterSpacing":"0.12em","textTransform":"uppercase"},"spacing":{"blockGap":"2rem"}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap"}} -->
 			<!-- wp:home-link {"label":"Home"} /-->
-			<!-- wp:navigation-link {"label":"Headphones","type":"custom","url":"/headphones/","kind":"custom","isTopLevelLink":true} /-->
-			<!-- wp:navigation-link {"label":"Speakers","type":"custom","url":"/speakers/","kind":"custom","isTopLevelLink":true} /-->
-			<!-- wp:navigation-link {"label":"Earphones","type":"custom","url":"/earphones/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Headphones","type":"custom","url":"/product-category/headphones/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Speakers","type":"custom","url":"/product-category/speakers/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Earphones","type":"custom","url":"/product-category/earphones/","kind":"custom","isTopLevelLink":true} /-->
 		<!-- /wp:navigation -->
 
+		<!-- wp:woocommerce/mini-cart {"iconColorValue":"#ffffff","productCountVisibility":"greater_than_zero","className":"audiophile-cart-link"} /-->
 		<!-- wp:html -->
-		<a class="audiophile-cart-link" href="/cart/" aria-label="Shopping cart">
+		<a class="audiophile-cart-link-fallback" href="/cart/" aria-label="View cart">
 			<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M2.5 3.5h2l2.15 11.1a2 2 0 0 0 1.96 1.62h8.42a2 2 0 0 0 1.92-1.44L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
 				<circle cx="9.5" cy="20" r="1.25" fill="currentColor" />
