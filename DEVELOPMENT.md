@@ -63,7 +63,7 @@ ddev wp option get woocommerce_checkout_page_id
 
 1. Create a feature branch and implement/test locally in DDEV.
 2. Push the branch and open a pull request to `main`.
-3. Review and merge the PR. GitHub Actions should run theme validation/build checks before allowing release.
+3. Review and merge the PR. The production workflow validates `theme.json` before syncing the theme.
 4. The production workflow deploys only `wp-content/themes/audiophile/` over SSH/rsync to:
    `/home/u933167856/domains/audiophile-e-commerce-website.ferfalcon.shop/public_html/wp-content/themes/audiophile/`
 5. Run a post-deploy HTTP smoke check and retain the previous commit as a rollback target.
@@ -77,10 +77,10 @@ Deployments must not synchronize WordPress core, `wp-config.php`, plugins, uploa
 ## Current production state
 
 - PR [#1](https://github.com/ferfalcon/audiophile-ecommerce-website/pull/1) implemented the responsive header/footer and local Manrope font. PR [#2](https://github.com/ferfalcon/audiophile-ecommerce-website/pull/2) changed the header/footer wordmark to editable linked text so it remains “audiophile” even when the WordPress Site Title option contains the domain.
-- Both PRs are merged to `main`. Deployment runs [38944910777](https://github.com/ferfalcon/audiophile-ecommerce-website/actions/runs/38944910777) and [38946891702](https://github.com/ferfalcon/audiophile-ecommerce-website/actions/runs/38946891702) completed successfully. The current main merge is `39d6aeb`.
-- Before the WooCommerce rollout, the deployed theme stylesheet was version `0.4.0`. The theme update to `0.5.3` is deployed separately by the theme-only GitHub Actions workflow.
+- PRs [#1](https://github.com/ferfalcon/audiophile-ecommerce-website/pull/1), [#2](https://github.com/ferfalcon/audiophile-ecommerce-website/pull/2), and [#3](https://github.com/ferfalcon/audiophile-ecommerce-website/pull/3) are merged to `main`. Deployment run [38956260574](https://github.com/ferfalcon/audiophile-ecommerce-website/actions/runs/38956260574) completed successfully; the current main merge is `df1e2f9`.
+- Theme stylesheet `0.5.3` is active in production. Post-deploy smoke checks passed for category and product pages, Cart, and Checkout at desktop and mobile widths; no horizontal overflow or missing images was found after lazy-loaded images finished loading.
 - WooCommerce `11.2.1` was installed and activated on production via WP-CLI after taking a verified database and site-files backup outside the document root at `/home/u933167856/backups/audiophile/20261016T192658Z/`. The archive contains 7,040 entries; the SQL dump contains 21 table definitions. Keep this backup through the rollback window. For ongoing backups, use Hostinger hPanel scheduled backups and create an on-demand full backup before production changes.
-- Production now has the three fictional categories and six fictional products with their demo images. No local test orders or customer/address data were copied. WooCommerce created/assigned Cart and Checkout pages. No payment gateways are enabled, and no production shipping or tax configuration was added; checkout is not ready for live orders.
+- Production now has the three fictional categories and six fictional products with their demo images. WooCommerce's coming-soon setting is off, so the catalog is public. No local test orders or customer/address data were copied. WooCommerce created/assigned Cart and Checkout pages. No payment gateways are enabled, and no production shipping or tax configuration was added; checkout cannot complete a live order. No production order was placed during verification.
 - The WordPress Site Title setting on production still contains the domain; the theme wordmark no longer depends on that setting. The homepage content remains the existing “Hello world!” starter content and was intentionally not changed.
 
 ## Verification and remaining limitations
