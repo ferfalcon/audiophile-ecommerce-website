@@ -22,7 +22,7 @@
       "fluid": true,
       "fontFamilies": [
         {
-          "fontFamily": "Arial, Helvetica, sans-serif",
+          "fontFamily": "Manrope, Arial, Helvetica, sans-serif",
           "slug": "sans-serif",
           "name": "Sans Serif"
         }

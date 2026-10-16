@@ -1,13 +1,29 @@
-<!-- wp:group {"align":"full","backgroundColor":"charcoal","textColor":"white","style":{"spacing":{"padding":{"top":"var:preset|spacing|x-large","right":"var:preset|spacing|medium","bottom":"var:preset|spacing|large","left":"var:preset|spacing|medium"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-white-color has-charcoal-background-color has-text-color has-background">
-	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignwide">
-		<!-- wp:site-title {"level":0} /-->
-		<!-- wp:paragraph -->
-		<p>Bringing you the best audio gear.</p>
-		<!-- /wp:paragraph -->
-		<!-- wp:paragraph {"fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|orange"}}}}} -->
-		<p class="has-small-font-size">Copyright © Audiophile. All rights reserved.</p>
+<!-- wp:group {"align":"full","className":"audiophile-site-footer","backgroundColor":"charcoal","textColor":"white","style":{"spacing":{"padding":{"top":"var:preset|spacing|x-large","right":"var:preset|spacing|medium","bottom":"var:preset|spacing|large","left":"var:preset|spacing|medium"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull audiophile-site-footer has-white-color has-charcoal-background-color has-text-color has-background">
+	<!-- wp:group {"className":"audiophile-footer__inner","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group audiophile-footer__inner">
+		<!-- wp:group {"className":"audiophile-footer__top","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group audiophile-footer__top">
+			<!-- wp:group {"className":"audiophile-footer__copy","layout":{"type":"default"}} -->
+			<div class="wp-block-group audiophile-footer__copy">
+				<!-- wp:site-title {"level":0,"className":"audiophile-footer__brand"} /-->
+				<!-- wp:paragraph {"className":"audiophile-footer__description","fontSize":"small"} -->
+				<p class="audiophile-footer__description has-small-font-size">Audiophile is an all-in-one stop to fulfill your audio needs. We’re a small team of music lovers and sound specialists devoted to helping you get the most out of personal audio. Visit our demo facility—we’re open seven days a week.</p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:navigation {"overlayMenu":"never","ariaLabel":"Footer navigation","className":"audiophile-footer__navigation","textColor":"white","style":{"typography":{"fontSize":"0.8125rem","fontWeight":"700","letterSpacing":"0.12em","textTransform":"uppercase"},"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","justifyContent":"right","flexWrap":"wrap"}} -->
+				<!-- wp:home-link {"label":"Home"} /-->
+				<!-- wp:navigation-link {"label":"Headphones","type":"custom","url":"/headphones/","kind":"custom","isTopLevelLink":true} /-->
+				<!-- wp:navigation-link {"label":"Speakers","type":"custom","url":"/speakers/","kind":"custom","isTopLevelLink":true} /-->
+				<!-- wp:navigation-link {"label":"Earphones","type":"custom","url":"/earphones/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- /wp:navigation -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:paragraph {"className":"audiophile-footer__copyright","fontSize":"small"} -->
+		<p class="audiophile-footer__copyright has-small-font-size">Copyright © Audiophile. All rights reserved.</p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
