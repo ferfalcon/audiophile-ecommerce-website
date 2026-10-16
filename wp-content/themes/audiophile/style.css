@@ -3,7 +3,7 @@ Theme Name: Audiophile
 Theme URI: https://audiophile-e-commerce-website.ferfalcon.shop/
 Author: Audiophile Team
 Description: A custom block theme for the Audiophile e-commerce experience.
-Version: 0.4.0
+Version: 0.5.3
 Requires at least: 6.6
 Tested up to: 7.0
 Requires PHP: 8.2
@@ -325,6 +325,608 @@ Text Domain: audiophile
 @media (prefers-reduced-motion: reduce) {
 	.audiophile-header__navigation .wp-block-navigation-item__content,
 	.audiophile-footer__navigation .wp-block-navigation-item__content {
+		transition: none;
+	}
+}
+
+/* WooCommerce block storefront */
+.audiophile-cart-link-fallback {
+	display: none;
+	grid-column: 3;
+	grid-row: 1;
+	justify-self: end;
+	align-items: center;
+	justify-content: flex-end;
+	min-inline-size: 2.75rem;
+	min-block-size: 2.75rem;
+	color: var(--wp--preset--color--white);
+}
+
+.audiophile-cart-link-fallback svg {
+	display: block;
+	inline-size: 1.5rem;
+	block-size: 1.5rem;
+}
+
+body:not(.woocommerce) .audiophile-cart-link,
+body.woocommerce-cart .audiophile-cart-link,
+body.woocommerce-checkout .audiophile-cart-link {
+	display: none;
+}
+
+body:not(.woocommerce) .audiophile-cart-link-fallback,
+body.woocommerce-cart .audiophile-cart-link-fallback,
+body.woocommerce-checkout .audiophile-cart-link-fallback {
+	display: inline-flex;
+}
+
+.audiophile-cart-link {
+	grid-column: 3;
+	justify-self: end;
+	min-inline-size: 2.75rem;
+	min-block-size: 2.75rem;
+}
+
+.audiophile-cart-link .wc-block-mini-cart__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-end;
+	min-inline-size: 2.75rem;
+	min-block-size: 2.75rem;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--wp--preset--color--white);
+}
+
+.audiophile-cart-link .wc-block-mini-cart__icon {
+	inline-size: 1.5rem;
+	block-size: 1.5rem;
+}
+
+.audiophile-cart-link .wc-block-mini-cart__badge {
+	background: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--white);
+}
+
+.audiophile-cart-link :where(button, a):focus-visible,
+.audiophile-cart-link-fallback:focus-visible,
+.audiophile-cart-main :where(a, button, input, select):focus-visible,
+.audiophile-checkout-main :where(a, button, input, select):focus-visible,
+.audiophile-single-product :where(a, button, input, select):focus-visible,
+.audiophile-order-confirmation-main :where(a, button):focus-visible {
+	outline: 2px solid var(--wp--preset--color--orange);
+	outline-offset: 3px;
+}
+
+.wc-block-mini-cart__drawer .wc-block-mini-cart__footer-checkout,
+.wc-block-components-button:not(.is-link).contained {
+	border: 0;
+	border-radius: 0;
+	background: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--white);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.wc-block-mini-cart__drawer .wc-block-mini-cart__footer-checkout:hover,
+.wc-block-components-button:not(.is-link).contained:hover {
+	background: #fbaf85;
+	color: var(--wp--preset--color--white);
+}
+
+body.woocommerce .wp-site-blocks > .audiophile-archive-heading {
+	margin-block-start: 0;
+}
+
+.audiophile-archive-heading {
+	padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.audiophile-archive-heading .wp-block-query-title {
+	margin: 0;
+	color: var(--wp--preset--color--white);
+	font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem);
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.audiophile-archive-main {
+	padding-block: clamp(3.5rem, 8vw, 7.5rem);
+}
+
+.audiophile-archive-products {
+	max-inline-size: var(--wp--style--global--content-size, 1110px);
+	margin-inline: auto;
+}
+
+.audiophile-archive-products .wc-block-product-template {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(4rem, 10vw, 9rem);
+	margin: 0;
+	padding: 0;
+}
+
+.audiophile-archive-products .wc-block-product-template > .wc-block-product {
+	width: 100%;
+	margin: 0;
+	list-style: none;
+}
+
+.audiophile-archive-product {
+	align-items: center;
+	gap: clamp(2rem, 8vw, 7.75rem);
+	margin: 0;
+}
+
+.audiophile-archive-product > .wp-block-column,
+.audiophile-product-hero > .wp-block-column {
+	min-inline-size: 0;
+}
+
+.audiophile-archive-product__media .wp-block-woocommerce-product-image,
+.audiophile-product-hero__media .wp-block-woocommerce-product-image-gallery {
+	display: grid;
+	place-items: center;
+	min-inline-size: 0;
+	aspect-ratio: 1;
+	overflow: hidden;
+	border-radius: 0.375rem;
+	background: var(--wp--preset--color--light-gray);
+}
+
+.audiophile-archive-product__media .wp-block-woocommerce-product-image > a {
+	display: grid;
+	place-items: center;
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.audiophile-archive-product__media .wp-block-woocommerce-product-image img {
+	box-sizing: border-box;
+	inline-size: 100%;
+	block-size: 100%;
+	padding: clamp(1rem, 5vw, 3.5rem);
+	object-fit: contain !important;
+}
+
+.audiophile-archive-product__copy {
+	max-inline-size: 27rem;
+}
+
+.audiophile-commerce-title {
+	margin-block: 0 1.25rem;
+	font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.08;
+	text-transform: uppercase;
+}
+
+.audiophile-commerce-title a:hover,
+.audiophile-product-summary a:hover {
+	color: var(--wp--preset--color--orange);
+}
+
+.audiophile-product-excerpt,
+.audiophile-product-summary {
+	color: #737373;
+}
+
+.audiophile-product-excerpt .wp-block-post-excerpt__more-text {
+	margin-block-start: 1.75rem;
+}
+
+.audiophile-product-excerpt .wp-block-post-excerpt__more-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-block-size: 3rem;
+	padding: 0.75rem 1.75rem;
+	background: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--white);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background-color 150ms ease;
+}
+
+.audiophile-product-excerpt .wp-block-post-excerpt__more-link:hover {
+	background: #fbaf85;
+}
+
+.audiophile-product-pagination {
+	margin-block-start: 4rem;
+}
+
+.audiophile-shop-categories {
+	max-inline-size: var(--wp--style--global--content-size, 1110px);
+	margin-block: clamp(5rem, 10vw, 9rem) 0;
+	margin-inline: auto;
+}
+
+.audiophile-shop-categories > .wp-block-heading {
+	margin-block-end: 3rem;
+	font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+	text-transform: uppercase;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item {
+	min-block-size: 8.5rem;
+	margin: 2rem 0 0;
+	border-radius: 0.375rem;
+	background: var(--wp--preset--color--light-gray);
+	list-style: none;
+	text-align: center;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item:nth-child(1) {
+	order: 3;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item:nth-child(2) {
+	order: 1;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item:nth-child(3) {
+	order: 2;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item > a {
+	display: flex;
+	min-block-size: inherit;
+	align-items: center;
+	flex-direction: column;
+	padding: 0 1rem 1.25rem;
+	color: #737373;
+	text-decoration: none;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item > a:hover {
+	color: var(--wp--preset--color--orange);
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item__image {
+	display: block;
+	inline-size: min(100%, 9rem);
+	max-inline-size: none;
+	max-width: none;
+	block-size: 7rem;
+	margin-block: -2rem 0.5rem;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item__image img {
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: contain;
+}
+
+.audiophile-shop-categories__list .wc-block-product-categories-list-item__name {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.audiophile-single-product {
+	box-sizing: border-box;
+	max-inline-size: calc(var(--wp--style--global--content-size, 1110px) + 3rem);
+	margin-inline: auto;
+	padding: 2rem 1.5rem clamp(5rem, 10vw, 9rem);
+}
+
+.audiophile-single-product .wc-block-components-notice-banner {
+	margin-block: 1.5rem;
+}
+
+.audiophile-go-back {
+	margin-block: 0 2rem;
+	color: #737373;
+	font-size: 0.875rem;
+}
+
+.audiophile-go-back a:hover {
+	color: var(--wp--preset--color--orange);
+}
+
+.audiophile-product-hero {
+	align-items: center;
+	gap: clamp(2rem, 8vw, 7.75rem);
+	margin-block: 0 clamp(5rem, 10vw, 9rem);
+}
+
+.audiophile-product-hero__media .wp-block-woocommerce-product-image-gallery {
+	padding: clamp(1rem, 4vw, 3rem);
+}
+
+.audiophile-product-hero__media .woocommerce-product-gallery,
+.audiophile-product-hero__media .woocommerce-product-gallery__wrapper,
+.audiophile-product-hero__media .woocommerce-product-gallery__image {
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.audiophile-product-hero__media img {
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: contain;
+}
+
+.audiophile-product-summary {
+	margin-block: 1rem 1.5rem;
+}
+
+.audiophile-product-hero__content .wp-block-woocommerce-product-price {
+	margin-block: 1.5rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+}
+
+.audiophile-product-hero__content .wc-block-add-to-cart-form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem;
+}
+
+.audiophile-product-hero__content .quantity {
+	margin: 0;
+}
+
+.audiophile-product-hero__content .single_add_to_cart_button,
+.audiophile-single-product .wp-block-button__link {
+	min-block-size: 3rem;
+	border: 0;
+	border-radius: 0;
+	background: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--white);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.audiophile-product-hero__content .single_add_to_cart_button:hover,
+.audiophile-single-product .wp-block-button__link:hover {
+	background: #fbaf85;
+}
+
+.audiophile-product-details {
+	max-inline-size: var(--wp--style--global--content-size, 1110px);
+	margin-block: 0 clamp(5rem, 10vw, 9rem);
+	margin-inline: auto;
+}
+
+.audiophile-product-details :where(h2, h3) {
+	font-size: 1.75rem;
+	text-transform: uppercase;
+}
+
+body.woocommerce-cart,
+body.woocommerce-checkout {
+	background: var(--wp--preset--color--light-gray);
+}
+
+.audiophile-cart-main,
+.audiophile-checkout-main {
+	box-sizing: border-box;
+	max-inline-size: calc(var(--wp--style--global--content-size, 1110px) + 3rem);
+	margin-inline: auto;
+	padding: 2rem 1.5rem clamp(5rem, 9vw, 8rem);
+}
+
+.audiophile-cart-main > .wp-block-post-title,
+.audiophile-checkout-title {
+	margin-block: 0 2rem;
+	font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem);
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.audiophile-cart-main .wp-block-woocommerce-cart,
+.audiophile-checkout-main .wp-block-woocommerce-checkout {
+	max-inline-size: 100%;
+}
+
+.audiophile-cart-main .wc-block-cart__main,
+.audiophile-cart-main .wc-block-cart__sidebar,
+.audiophile-checkout-main .wc-block-components-main,
+.audiophile-checkout-main .wc-block-components-sidebar {
+	padding: clamp(1.25rem, 3vw, 3rem);
+	border-radius: 0.375rem;
+	background: var(--wp--preset--color--white);
+}
+
+.audiophile-cart-main .wc-block-cart__submit-button,
+.audiophile-checkout-main .wc-block-components-checkout-place-order-button,
+.audiophile-cart-main .wc-block-components-button:not(.is-link).contained {
+	min-block-size: 3rem;
+	border: 0;
+	border-radius: 0;
+	background: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--white);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.audiophile-cart-main :where(.wc-block-components-quantity-selector, .wc-block-components-quantity-selector input),
+.audiophile-checkout-main .wc-block-components-text-input input,
+.audiophile-checkout-main .wc-block-components-combobox .components-combobox-control__input,
+.audiophile-checkout-main .wc-block-components-select .components-select-control__input {
+	border-radius: 0.25rem;
+}
+
+.audiophile-checkout-main .wc-block-checkout__main {
+	padding: 0;
+}
+
+.audiophile-checkout-main .wc-block-components-checkout-step {
+	padding: 0;
+	border: 0;
+}
+
+.audiophile-checkout-main .wc-block-components-checkout-step__heading {
+	color: var(--wp--preset--color--orange);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.audiophile-checkout-main .wc-block-components-text-input input:focus,
+.audiophile-checkout-main .wc-block-components-combobox .components-combobox-control__input:focus {
+	border-color: var(--wp--preset--color--orange);
+	box-shadow: 0 0 0 1px var(--wp--preset--color--orange);
+}
+
+.audiophile-order-confirmation-main {
+	padding-block: clamp(3rem, 8vw, 7rem);
+}
+
+.audiophile-order-confirmation-card {
+	max-inline-size: 42rem;
+	margin-inline: auto;
+	padding: clamp(1.5rem, 5vw, 3rem);
+	border-radius: 0.5rem;
+	background: var(--wp--preset--color--white);
+	box-shadow: 0 1rem 2rem rgb(0 0 0 / 7%);
+}
+
+.audiophile-order-confirmation-card .wc-block-order-confirmation-status {
+	margin-block: 0 1rem;
+}
+
+.audiophile-order-confirmation-card .wc-block-order-confirmation-status__icon {
+	color: var(--wp--preset--color--orange);
+}
+
+.audiophile-order-confirmation-card .audiophile-confirmation-message {
+	margin-block: 0 2rem;
+	color: #737373;
+}
+
+.audiophile-order-confirmation-card .wc-block-order-confirmation-summary,
+.audiophile-order-confirmation-card .wc-block-order-confirmation-totals {
+	padding: 1.25rem;
+	border-radius: 0.375rem;
+	background: var(--wp--preset--color--light-gray);
+}
+
+.audiophile-order-confirmation-card .audiophile-confirmation-home {
+	margin-block: 2rem 0;
+}
+
+.audiophile-order-confirmation-card .audiophile-confirmation-home .wp-element-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-block-size: 3rem;
+	border: 0;
+	border-radius: 0;
+	background: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--white);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+@media (min-width: 48rem) {
+	.audiophile-archive-products .wc-block-product:nth-child(even) .audiophile-archive-product {
+		flex-direction: row-reverse;
+	}
+}
+
+@media (max-width: 47.999rem) {
+	.audiophile-archive-main {
+		padding-inline: 1rem;
+	}
+
+	.audiophile-archive-products .wc-block-product-template {
+		gap: 4rem;
+	}
+
+	.audiophile-archive-product {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.audiophile-archive-product > .wp-block-column {
+		flex-basis: 100% !important;
+		width: 100%;
+	}
+
+	.audiophile-archive-product__copy {
+		max-inline-size: 32rem;
+		text-align: center;
+	}
+
+	.audiophile-archive-product__media .wp-block-woocommerce-product-image {
+		max-inline-size: 100%;
+	}
+
+	.audiophile-shop-categories__list .wc-block-product-categories-list {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 2.75rem;
+	}
+
+	.audiophile-single-product {
+		padding: 1rem 1rem 5rem;
+	}
+
+	.audiophile-product-hero {
+		flex-direction: column;
+		gap: 2rem;
+		margin-block-end: 4rem;
+	}
+
+	.audiophile-product-hero > .wp-block-column {
+		flex-basis: 100% !important;
+		width: 100%;
+	}
+
+	.audiophile-product-hero__content {
+		text-align: start;
+	}
+
+	.audiophile-cart-main,
+	.audiophile-checkout-main {
+		padding-inline: 1rem;
+	}
+
+	.audiophile-cart-main .wc-block-cart,
+	.audiophile-checkout-main .wc-block-checkout {
+		padding-inline: 0;
+	}
+
+	.audiophile-checkout-main .wc-block-components-main,
+	.audiophile-checkout-main .wc-block-components-sidebar {
+		padding: 1.25rem;
+	}
+
+	.audiophile-order-confirmation-card {
+		padding: 1.5rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.audiophile-product-excerpt .wp-block-post-excerpt__more-link {
 		transition: none;
 	}
 }

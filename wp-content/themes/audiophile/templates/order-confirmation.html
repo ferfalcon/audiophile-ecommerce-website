@@ -1,0 +1,44 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"audiophile-order-confirmation-main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group audiophile-order-confirmation-main">
+	<!-- wp:group {"className":"audiophile-order-confirmation-card","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group audiophile-order-confirmation-card">
+		<!-- wp:woocommerce/order-confirmation-status {"fontSize":"large"} /-->
+		<!-- wp:paragraph {"className":"audiophile-confirmation-message"} -->
+		<p class="audiophile-confirmation-message">Your order details are below. A confirmation email will be sent to the address provided at checkout.</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:woocommerce/order-confirmation-summary /-->
+		<!-- wp:woocommerce/order-confirmation-totals-wrapper {"align":"wide"} -->
+		<!-- wp:pattern {"slug":"woocommerce/order-confirmation-totals-heading"} /-->
+		<!-- wp:woocommerce/order-confirmation-totals {"lock":{"remove":true}} /-->
+		<!-- /wp:woocommerce/order-confirmation-totals-wrapper -->
+		<!-- wp:columns {"className":"wc-block-order-confirmation-address-wrapper"} -->
+		<div class="wp-block-columns wc-block-order-confirmation-address-wrapper">
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:woocommerce/order-confirmation-shipping-wrapper {"align":"wide"} -->
+				<!-- wp:pattern {"slug":"woocommerce/order-confirmation-shipping-heading"} /-->
+				<!-- wp:woocommerce/order-confirmation-shipping-address {"lock":{"remove":true}} /-->
+				<!-- /wp:woocommerce/order-confirmation-shipping-wrapper -->
+			</div>
+			<!-- /wp:column -->
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:woocommerce/order-confirmation-billing-wrapper {"align":"wide"} -->
+				<!-- wp:pattern {"slug":"woocommerce/order-confirmation-billing-heading"} /-->
+				<!-- wp:woocommerce/order-confirmation-billing-address {"lock":{"remove":true}} /-->
+				<!-- /wp:woocommerce/order-confirmation-billing-wrapper -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+		<!-- wp:paragraph {"className":"audiophile-confirmation-home"} -->
+		<p class="audiophile-confirmation-home"><a class="wp-element-button" href="/">Back to home</a></p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

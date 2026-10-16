@@ -1,0 +1,66 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"align":"full","className":"audiophile-archive-heading","backgroundColor":"charcoal","textColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull audiophile-archive-heading has-white-color has-charcoal-background-color has-text-color has-background">
+	<!-- wp:query-title {"type":"archive","showPrefix":false,"level":1,"align":"wide"} /-->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"main","className":"audiophile-archive-main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group audiophile-archive-main">
+	<!-- wp:woocommerce/store-notices /-->
+
+	<!-- wp:woocommerce/product-collection {"queryId":0,"query":{"woocommerceAttributes":[],"woocommerceStockStatus":["instock","outofstock","onbackorder"],"taxQuery":{},"isProductCollectionBlock":true,"perPage":9,"pages":0,"offset":0,"postType":"product","order":"asc","orderBy":"menu_order title","author":"","search":"","exclude":[],"sticky":"","inherit":true},"tagName":"div","dimensions":{"widthType":"fill","fixedWidth":""},"displayLayout":{"type":"flex","columns":1,"shrinkColumns":true},"convertedFromProducts":false,"queryContextIncludes":["collection"],"className":"audiophile-archive-products"} -->
+	<div class="wp-block-woocommerce-product-collection audiophile-archive-products">
+		<!-- wp:woocommerce/product-template -->
+			<!-- wp:columns {"verticalAlignment":"center","className":"audiophile-archive-product"} -->
+			<div class="wp-block-columns are-vertically-aligned-center audiophile-archive-product">
+				<!-- wp:column {"className":"audiophile-archive-product__media"} -->
+				<div class="wp-block-column audiophile-archive-product__media">
+					<!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"thumbnail","isDescendentOfQueryLoop":true} /-->
+				</div>
+				<!-- /wp:column -->
+
+				<!-- wp:column {"className":"audiophile-archive-product__copy"} -->
+				<div class="wp-block-column audiophile-archive-product__copy">
+					<!-- wp:post-title {"level":2,"isLink":true,"className":"audiophile-commerce-title"} /-->
+					<!-- wp:post-excerpt {"excerptLength":36,"moreText":"See product","showMoreOnNewLine":true,"className":"audiophile-product-excerpt"} /-->
+				</div>
+				<!-- /wp:column -->
+			</div>
+			<!-- /wp:columns -->
+		<!-- /wp:woocommerce/product-template -->
+
+		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"className":"audiophile-product-pagination"} -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+
+		<!-- wp:woocommerce/product-collection-no-results -->
+			<!-- wp:group {"layout":{"type":"constrained"},"className":"audiophile-empty-products"} -->
+			<div class="wp-block-group audiophile-empty-products">
+				<!-- wp:heading {"level":2,"textAlign":"center"} -->
+				<h2 class="wp-block-heading has-text-align-center">No products found</h2>
+				<!-- /wp:heading -->
+				<!-- wp:paragraph {"align":"center"} -->
+				<p class="has-text-align-center">There are no products in this collection yet. Please check back soon.</p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+		<!-- /wp:woocommerce/product-collection-no-results -->
+	</div>
+	<!-- /wp:woocommerce/product-collection -->
+
+	<!-- wp:group {"className":"audiophile-shop-categories","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group audiophile-shop-categories">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Shop by category</h2>
+		<!-- /wp:heading -->
+		<!-- wp:woocommerce/product-categories {"hasCount":false,"hasImage":true,"hasEmpty":false,"isDropdown":false,"isHierarchical":false,"showChildrenOnly":false,"className":"audiophile-shop-categories__list"} /-->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
