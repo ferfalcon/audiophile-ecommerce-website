@@ -1,0 +1,58 @@
+name: Deploy production theme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wp-content/themes/audiophile/**'
+      - '.github/workflows/deploy-production.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-theme-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    name: Deploy Audiophile theme
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Validate theme metadata
+        run: python3 -m json.tool wp-content/themes/audiophile/theme.json >/dev/null
+
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          KNOWN_HOSTS: ${{ vars.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          set -eu
+          test -n "$DEPLOY_KEY" || { echo 'Missing HOSTINGER_SSH_KEY secret' >&2; exit 1; }
+          test -n "$KNOWN_HOSTS" || { echo 'Missing HOSTINGER_KNOWN_HOSTS variable' >&2; exit 1; }
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/id_ed25519"
+          chmod 600 "$HOME/.ssh/id_ed25519"
+          printf '%s\n' "$KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
+      - name: Deploy theme files
+        env:
+          DEPLOY_HOST: ${{ vars.HOSTINGER_HOST }}
+          DEPLOY_USER: ${{ vars.HOSTINGER_USER }}
+          DEPLOY_PORT: ${{ vars.HOSTINGER_PORT }}
+          DEPLOY_PATH: ${{ vars.HOSTINGER_THEME_PATH }}
+        run: |
+          set -eu
+          test -n "$DEPLOY_HOST" && test -n "$DEPLOY_USER" && test -n "$DEPLOY_PORT" && test -n "$DEPLOY_PATH"
+          ssh -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH'"
+          rsync -az --delete --itemize-changes \
+            -e "ssh -p $DEPLOY_PORT" \
+            wp-content/themes/audiophile/ \
+            "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
